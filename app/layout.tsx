@@ -8,8 +8,8 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "Relayor",
-  description: "Healthcare referral platform",
+  title: "RelayDor",
+  description: "RelayDor - Healthcare Referral Platform",
 };
 
 export default function RootLayout({
