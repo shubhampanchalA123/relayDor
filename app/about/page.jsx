@@ -2,8 +2,8 @@ import Header from "@/components/layout/header/Header";
 import Footer from "@/components/layout/footer/Footer";
 
 export const metadata = {
-  title: "About Us - RelayDor",
-  description: "Learn more about RelayDor - simplifying healthcare connections",
+  title: "About Us - relayDor",
+  description: "Learn more about relayDor - simplifying healthcare connections",
 };
 
 export default function AboutPage() {
@@ -14,7 +14,7 @@ export default function AboutPage() {
       {/* Hero Section */}
       <section className="bg-gradient-to-br from-[#2F80ED] via-[#3A8DFF] to-[#56CCF2] py-20">
         <div className="max-w-7xl mx-auto px-6 text-center text-white">
-          <h1 className="text-4xl md:text-5xl font-bold mb-4">About RelayDor</h1>
+          <h1 className="text-4xl md:text-5xl font-bold mb-4">About relayDor</h1>
           <p className="text-xl text-blue-100 max-w-2xl mx-auto">
             Simplifying Healthcare Connections
           </p>
@@ -32,7 +32,7 @@ export default function AboutPage() {
                 Your Trusted Healthcare Partner
               </h2>
               <p className="text-gray-600 text-lg mb-6 leading-relaxed">
-                RelayDor is a modern healthcare platform designed to bridge the gap 
+                relayDor is a modern healthcare platform designed to bridge the gap 
                 between patients and doctors. We believe that quality healthcare should 
                 be accessible to everyone, anywhere.
               </p>

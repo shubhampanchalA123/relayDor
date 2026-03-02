@@ -1,76 +1,105 @@
+"use client";
+
 import Image from "next/image";
+import { useEffect, useState } from "react";
 
 export default function Hero() {
+  const images = [
+    "/images/doctor3.png",
+    "/images/doctor4.png",
+  ];
+
+  const [index, setIndex] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setIndex((prev) => (prev + 1) % images.length);
+    }, 3000); // change every 3 seconds
+
+    return () => clearInterval(interval);
+  }, []);
+
   return (
-    <section id="home" className="relative overflow-hidden">
+    <section id="home" className="relative overflow-hidden bg-white">
 
-      {/* 🔵 Background Gradient */}
-      <div className="absolute inset-0 bg-gradient-to-br from-[#2F80ED] via-[#3A8DFF] to-[#56CCF2]" />
+      {/* Background Gradient */}
+      <div className="absolute inset-0 bg-gradient-to-br from-white via-[#F4F8FC] to-[#E6F2FA]" />
 
-      {/* 🌊 Bottom Wave */}
-      <svg
-        className="absolute bottom-0 left-0 w-full"
-        viewBox="0 0 1440 200"
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        <path
-          fill="#ffffff"
-          d="M0,120L80,130C160,140,320,160,480,150C640,140,800,100,960,90C1120,80,1280,100,1360,110L1440,120V200H0Z"
-        />
-      </svg>
+      {/* Decorative Blur */}
+      <div className="absolute -top-20 -left-20 w-80 h-80 bg-blue-200 opacity-30 rounded-full blur-3xl"></div>
+      <div className="absolute bottom-0 right-0 w-[400px] h-[400px] bg-blue-100 opacity-30 rounded-full blur-3xl"></div>
 
-      {/* 🧱 Content */}
-      <div className="relative max-w-7xl mx-auto px-6 pt-20 pb-32 grid lg:grid-cols-2 items-center gap-12 text-white">
+      <div className="relative max-w-7xl mx-auto px-6 pt-16 pb-20 grid lg:grid-cols-2 items-center gap-12">
 
-        {/* LEFT TEXT */}
+        {/* LEFT CONTENT */}
         <div className="text-center lg:text-left">
-          <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold leading-tight">
-            Connect with Doctors,
-            <br className="hidden sm:block" />
-            Book Appointments Easily
+
+          <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold leading-tight text-[#123C5A]">
+            Refer for Better.
+            <span className="block text-[#1E5C8A] mt-2">
+              Connect with Trust.
+            </span>
           </h1>
 
-          <p className="mt-6 text-base sm:text-lg text-blue-100 max-w-xl mx-auto lg:mx-0">
-            Your healthcare, simplified. Find the right doctor or
-            get referred to specialists in minutes.
+          <p className="mt-6 text-lg text-gray-600 max-w-xl mx-auto lg:mx-0 leading-relaxed">
+            India’s ethical doctor-to-doctor referral network —
+            built to eliminate intermediaries and restore professional trust.
           </p>
 
-          <div className="mt-8 flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
-            <button className="bg-white text-blue-600 px-6 py-3 rounded-lg font-semibold shadow-md hover:scale-105 transition">
-              Book Appointment
+          <p className="mt-4 text-base text-gray-500 max-w-xl mx-auto lg:mx-0 leading-relaxed">
+            Relaydor enables verified doctors to securely refer patients,
+            collaborate in real time, and grow through a trusted nationwide network.
+          </p>
+
+          {/* CTA Buttons */}
+          <div className="mt-8 flex flex-col sm:flex-row gap-5 justify-center lg:justify-start">
+            <button className="bg-gradient-to-r from-[#1E5C8A] to-[#123C5A] text-white px-8 py-4 rounded-xl font-semibold shadow-lg hover:-translate-y-1 hover:shadow-xl transition-all duration-300">
+              Join as Verified Doctor
             </button>
 
-            <button className="bg-blue-700 bg-opacity-80 px-6 py-3 rounded-lg font-semibold shadow-md hover:bg-opacity-100 transition">
-              Join as Doctor
+            <button className="border border-[#1E5C8A] text-[#123C5A] px-8 py-4 rounded-xl font-semibold hover:bg-blue-50 transition-all duration-300">
+              Request Early Access
             </button>
           </div>
-        </div>
 
-        {/* RIGHT IMAGES */}
-        <div className="relative flex justify-center items-end mt-10 lg:mt-0">
-
-          {/* Doctor Image */}
-          <div className="relative z-20">
-            <Image
-              src="/images/doctor.png"
-              alt="Doctor"
-              width={280}
-              height={420}
-              className="w-[200px] sm:w-[250px] lg:w-[300px] drop-shadow-2xl"
-              priority
-            />
+          {/* Trust Badges */}
+          <div className="mt-6 flex flex-wrap gap-3 justify-center lg:justify-start">
+            <span className="px-4 py-2 bg-white shadow-sm border border-blue-100 rounded-full text-sm text-gray-600">
+              ✔ Verified Doctors Only
+            </span>
+            <span className="px-4 py-2 bg-white shadow-sm border border-blue-100 rounded-full text-sm text-gray-600">
+              ✔ No Middlemen
+            </span>
+            <span className="px-4 py-2 bg-white shadow-sm border border-blue-100 rounded-full text-sm text-gray-600">
+              ✔ Confidential & Secure
+            </span>
           </div>
 
-<Image
-  src="/images/doctormobilepng.png"
-  alt="App Mobile"
-  width={260}
-  height={500}
-  className="w-[180px] sm:w-[220px] lg:w-[260px] drop-shadow-xl animate-float"
-  priority
-/>
-
         </div>
+
+        {/* RIGHT SQUARE ANIMATED IMAGE */}
+        {/* RIGHT SQUARE ANIMATED IMAGE */}
+<div className="relative flex justify-center lg:justify-end">
+
+  <div className="relative w-[380px] sm:w-[420px] lg:w-[480px] aspect-square overflow-hidden rounded-3xl shadow-2xl">
+
+    {images.map((src, i) => (
+      <Image
+        key={i}
+        src={src}
+        alt="Doctor"
+        fill
+        className={`object-cover absolute transition-opacity duration-1000 ${
+          i === index ? "opacity-100" : "opacity-0"
+        }`}
+        priority
+      />
+    ))}
+
+  </div>
+
+</div>
+
       </div>
     </section>
   );

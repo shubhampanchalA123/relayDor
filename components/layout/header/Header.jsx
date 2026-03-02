@@ -11,15 +11,19 @@ const Header = () => {
       <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
         
         {/* Logo */}
-        <Link href="/" className="text-2xl font-bold text-blue-600">
-          RelayDor
+        <Link href="/" className="text-2xl font-bold text-[#0D5C91]">
+          relayDor
         </Link>
 
         {/* Desktop Menu */}
         <nav className="hidden md:flex items-center gap-8 text-gray-700 font-medium">
           <Link href="/" className="hover:text-blue-600">Home</Link>
-          <Link href="/about" className="hover:text-blue-600">About</Link>
+          <Link href="/vision" className="hover:text-blue-600">Vision</Link>
+          <Link href="/community" className="hover:text-blue-600">Community</Link>
           <Link href="/contact" className="hover:text-blue-600">Contact</Link>
+          <Link href="/join" className="bg-[#0D5C91] text-white px-4 py-2 rounded-md hover:bg-opacity-90">
+            Join as Doctor
+          </Link>
         </nav>
 
         {/* Mobile Menu Icon */}
@@ -48,8 +52,12 @@ const Header = () => {
         <div className="md:hidden bg-white border-t shadow-sm">
           <div className="px-6 py-6 flex flex-col gap-4 text-gray-700 font-medium">
             <Link href="/" onClick={() => setOpen(false)}>Home</Link>
-            <Link href="/about" onClick={() => setOpen(false)}>About</Link>
+            <Link href="/vision" onClick={() => setOpen(false)}>Vision</Link>
+            <Link href="/community" onClick={() => setOpen(false)}>Community</Link>
             <Link href="/contact" onClick={() => setOpen(false)}>Contact</Link>
+            <Link href="/join" className="bg-[#0D5C91] text-white px-4 py-2 rounded-md hover:bg-opacity-90 text-center">
+              Join as Doctor
+            </Link>
           </div>
         </div>
       )}
